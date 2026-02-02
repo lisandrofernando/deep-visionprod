@@ -1,0 +1,56 @@
+name: Deploy to Environments
+
+on:
+  push:
+    branches:
+      - dev  # Trigger on push to dev
+      - master # Trigger on push to main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Use your Node version
+
+      - name: Install dependencies
+        run: npm install  # Or yarn install
+
+      - name: Build for environment
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
+            echo "REACT_APP_API_URL=http://dev-api.deep-vision.com" > .env
+          else
+            echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
+          fi
+          echo "PUBLIC_URL=https://lisandrofernando.github.io/deep-visionprod" >> .env
+          npm run build
+
+      - name: Add 404.html for SPA routing
+        run: cp build/index.html build/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
