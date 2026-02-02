@@ -6,17 +6,9 @@ on:
       - dev  # Trigger on push to dev
       - master # Trigger on push to main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout source code
@@ -33,24 +25,22 @@ jobs:
       - name: Build for environment
         run: |
           if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
-            echo "REACT_APP_API_URL=http://dev-api.deep-vision.com" > .env
+            npm run build -- --mode development  # Builds with .env.development
+            echo "Deploying to dev"
+            echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-dev" >> $GITHUB_ENV
           else
-            echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
+            npm run build -- --mode production   # Builds with .env.production
+            echo "Deploying to prod"
+            echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-prod" >> $GITHUB_ENV
           fi
-          echo "PUBLIC_URL=https://lisandrofernando.github.io/deep-visionprod" >> .env
-          npm run build
+        env:
+          NODE_ENV: ${{ github.ref == 'refs/heads/dev' && 'development' || 'production' }}
 
-      - name: Add 404.html for SPA routing
-        run: cp build/index.html build/404.html
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages repo
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: build
-          
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          repository: ${{ env.DEPLOY_REPO }}  # Set in the build step
+          branch: gh-pages
+          folder: build  # Your build output folder (default for React)
+          clean: true
