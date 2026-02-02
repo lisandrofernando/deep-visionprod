@@ -3,12 +3,14 @@ name: Deploy to Environments
 on:
   push:
     branches:
-      - dev  # Trigger on push to dev
-      - master # Trigger on push to main
+      - dev
+      - master
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout source code
@@ -17,30 +19,30 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Use your Node version
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install  # Or yarn install
+        run: npm ci
 
       - name: Build for environment
         run: |
           if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
-            npm run build -- --mode development  # Builds with .env.development
+            echo "REACT_APP_API_URL=http://dev-api.deep-vision.com" > .env
             echo "Deploying to dev"
             echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-dev" >> $GITHUB_ENV
           else
-            npm run build -- --mode production   # Builds with .env.production
+            echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
             echo "Deploying to prod"
             echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-prod" >> $GITHUB_ENV
           fi
-        env:
-          NODE_ENV: ${{ github.ref == 'refs/heads/dev' && 'development' || 'production' }}
+          npm run build
 
       - name: Deploy to GitHub Pages repo
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
-          repository: ${{ env.DEPLOY_REPO }}  # Set in the build step
+          repository: ${{ env.DEPLOY_REPO }}
           branch: gh-pages
-          folder: build  # Your build output folder (default for React)
+          folder: build
           clean: true
