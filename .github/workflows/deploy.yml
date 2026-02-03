@@ -29,14 +29,19 @@ jobs:
         run: |
           if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
             echo "REACT_APP_API_URL=http://dev-api.deep-vision.com" > .env
+            echo "PUBLIC_URL=https://lisandrofernando.github.io/deep-visionprod-dev" >> .env
             echo "Deploying to dev"
             echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-dev" >> $GITHUB_ENV
           else
             echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
+            echo "PUBLIC_URL=https://lisandrofernando.github.io/deep-visionprod-prod" >> .env
             echo "Deploying to prod"
             echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-prod" >> $GITHUB_ENV
           fi
           npm run build
+
+      - name: Add 404.html for SPA routing
+        run: cp build/index.html build/404.html
 
       - name: Deploy to GitHub Pages repo
         uses: JamesIves/github-pages-deploy-action@v4
