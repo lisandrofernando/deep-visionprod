@@ -154,7 +154,7 @@ function Footer() {
              <img src={myLog} alt="Company Logo" />
                </div>
           </div>
-          <small className='website-rights'>Deep Vision By Eng.Lisandro Fernando. All Rights Reserved © 2023</small>
+          <small className='website-rights'>Deep Vision By Eng.Lisandro Fernando. All Rights Reserved © 2024</small>
           <div className='social-icons'>
             <a href="https://www.facebook.com/profile.php?id=100091952197954"
               className='social-icon-link facebook'
