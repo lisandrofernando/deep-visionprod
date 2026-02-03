@@ -34,9 +34,13 @@ jobs:
           else
             echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
             echo "Deploying to prod"
-            echo "DEPLOY_REPO=lisandrofernando.github.io/deep-visionprod-prod" >> $GITHUB_ENV
+            echo "DEPLOY_REPO=lisandrofernando/deep-visionprod-prod" >> $GITHUB_ENV
           fi
           npm run build
+          echo "Build completed. Contents of build folder:"
+          ls -la build/
+          echo "Contents of index.html:"
+          head -20 build/index.html
 
       - name: Add 404.html for SPA routing
         run: cp build/index.html build/404.html

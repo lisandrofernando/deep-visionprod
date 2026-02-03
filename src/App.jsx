@@ -7,13 +7,15 @@ import Services from "./components/pages/Services"
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/services" component={Services} />
-      </Switch>
-    </Router>
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/services" component={Services} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
