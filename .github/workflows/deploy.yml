@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: |
           echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
-          echo "PUBLIC_URL=/deep-visionprod" >> .env
+          echo "PUBLIC_URL=." >> .env
           npm run build
 
       - name: Add 404.html
