@@ -46,17 +46,23 @@ function Footer() {
       setIsSubmitting(false);
       return;
     }
-    
     try {
-      const subject = `Contact Form - ${formData.name}`;
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AMessage: ${formData.message}`;
-      
-      window.location.href = `mailto:lisandrusfernandus@hotmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-      
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      setSubmitStatus('Email client opened successfully!');
+      const response = await fetch('http://localhost:5001/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setSubmitStatus('Message sent successfully!');
+      } else {
+        setSubmitStatus(data.message || 'Failed to send message.');
+      }
     } catch (error) {
-      setSubmitStatus('Error opening email client. Please try again.');
+      setSubmitStatus('Error sending message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
