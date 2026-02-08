@@ -7,11 +7,14 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scroll": "^1.8.9",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -39,4 +42,3 @@
     ]
   }
 }
-
