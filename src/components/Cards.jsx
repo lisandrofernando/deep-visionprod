@@ -7,9 +7,11 @@ import development from '../assets/logoandvideos/Develoment.jpg'
 import projectMang from '../assets/logoandvideos/Management.jpg'
 import Ai from '../assets/logoandvideos/AI.jpg'
 
+import dataEngineering from '../assets/logoandvideos/DataEngineering.jpg'
+
 function Cards() {
   useEffect(() => {
-    const images = [testing, devops, development, projectMang, Ai];
+    const images = [testing, devops, development, projectMang, Ai, dataEngineering];
     images.forEach(src => {
       const img = new Image();
       img.src = src;
@@ -51,6 +53,14 @@ function Cards() {
               src={Ai}
               text='Ride through the Innovative Transformation'
               label='Artificial Inteligence'
+              path='/services'
+            />
+          </ul>
+          <ul className='cards__items'>
+            <CardItem
+              src={dataEngineering}
+              text='Transform raw data into powerful insights — we design and build scalable data pipelines, warehouses, and analytics solutions that fuel smarter business decisions powered by AI.'
+              label='Data Engineering'
               path='/services'
             />
           </ul>
