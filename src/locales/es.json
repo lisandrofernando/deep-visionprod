@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contáctanos"
+  },
+  "hero": {
+    "title": "ASÓCIATE CON NOSOTROS",
+    "subtitle": "Ponte en contacto",
+    "getStarted": "Comenzar",
+    "globalConsultant": "Somos una Consultora Global"
+  },
+  "about": {
+    "p1": "En DeepVision, no solo desarrollamos software — diseñamos soluciones inteligentes impulsadas por Inteligencia Artificial. Estamos redefiniendo lo que es posible para los negocios al poner la IA en el centro de todo lo que hacemos. Nuestra misión es empoderar a las organizaciones con tecnología de vanguardia que genera resultados reales y medibles.",
+    "p2": "Desde el concepto hasta el despliegue, diseñamos y desarrollamos aplicaciones de IA totalmente personalizadas a las necesidades específicas de tu negocio — ya sea análisis predictivo, automatización inteligente, procesamiento de lenguaje natural o visión por computadora. Ningún desafío es demasiado complejo. Si tu negocio lo necesita, nosotros lo construimos.",
+    "p3": "Nuestro equipo de desarrollo de élite construye software robusto y escalable potenciado por IA — y lo valida con herramientas de prueba basadas en IA que detectan, analizan y resuelven problemas más rápido que nunca. Cada solución que entregamos es confiable, segura y diseñada para operar al más alto nivel.",
+    "p4": "Potenciamos tu pipeline de entrega con prácticas de DevOps impulsadas por IA, permitiendo lanzamientos más rápidos, monitoreo más inteligente e implementaciones sin tiempo de inactividad. La velocidad y la precisión no son un lujo — son nuestro estándar.",
+    "p5": "DeepVision es tu socio estratégico en la revolución de la IA. No solo entregamos proyectos — construimos asociaciones duraderas que impulsan un crecimiento medible y una ventaja competitiva. El futuro pertenece a quienes innovan. Construyámoslo juntos."
+  },
+  "cards": {
+    "title": "Conoce nuestros Servicios",
+    "testingLabel": "Pruebas de Software",
+    "testingText": "Asegura que no haya errores en tu aplicación",
+    "devopsLabel": "DevOps",
+    "devopsText": "Entrega con Calidad",
+    "developmentLabel": "Desarrollo de Software",
+    "developmentText": "Desarrollo Front-End & Back-End",
+    "managementLabel": "Gestión de Proyectos",
+    "managementText": "Agrega agilidad y Gestión de Calidad a tu Ciclo de Vida de Software",
+    "aiLabel": "Inteligencia Artificial",
+    "aiText": "Navega la Transformación Innovadora"
+  },
+  "footer": {
+    "heading": "ASÓCIATE CON NOSOTROS",
+    "namePlaceholder": "Tu Nombre",
+    "emailPlaceholder": "Tu Correo Electrónico",
+    "phonePlaceholder": "Tu Número de Teléfono",
+    "messagePlaceholder": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successMsg": "¡Mensaje enviado con éxito!",
+    "errorMsg": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "validationName": "Por favor, ingresa tu nombre",
+    "validationEmail": "Por favor, ingresa una dirección de correo válida",
+    "validationMessage": "Por favor, ingresa tu mensaje",
+    "aboutUs": "Sobre Nosotros",
+    "howItWorks": "Cómo funciona",
+    "terms": "Términos de Servicio",
+    "contactUs": "Contáctanos",
+    "contact": "Contacto",
+    "support": "Soporte",
+    "sponsor": "Patrocínanos",
+    "socialMedia": "Redes Sociales",
+    "rights": "Deep Vision por Ing. Lisandro Fernando. Todos los derechos reservados © 2024"
+  }
+}

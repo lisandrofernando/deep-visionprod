@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "PARTNER WITH US",
+    "subtitle": "Get in touch",
+    "getStarted": "Get Started",
+    "globalConsultant": "We are a Global Consultant"
+  },
+  "about": {
+    "p1": "At DeepVision, we don't just build software — we engineer intelligent solutions powered by Artificial Intelligence. We are redefining what's possible for businesses by placing AI at the center of everything we do. Our mission is to empower organizations with cutting-edge technology that drives real, measurable results.",
+    "p2": "From concept to deployment, we design and develop fully customized AI applications tailored to your specific business needs — whether it's predictive analytics, intelligent automation, natural language processing, or computer vision. No challenge is too complex. If your business needs it, we build it.",
+    "p3": "Our elite development team builds robust, scalable software enhanced by AI — and validates it with AI-powered testing tools that detect, analyze, and resolve issues faster than ever before. Every solution we deliver is reliable, secure, and built to perform at the highest level.",
+    "p4": "We supercharge your delivery pipeline with AI-driven DevOps practices, enabling faster releases, smarter monitoring, and zero-downtime deployments. Speed and precision are not a luxury — they are our standard.",
+    "p5": "DeepVision is your strategic partner in the AI revolution. We don't just deliver projects — we build lasting partnerships that drive measurable growth and competitive advantage. The future belongs to those who innovate. Let's build it together."
+  },
+  "cards": {
+    "title": "Check out our Services",
+    "testingLabel": "Software Testing",
+    "testingText": "Ensure no bugs in your application",
+    "devopsLabel": "Devops",
+    "devopsText": "Quality Delivery",
+    "developmentLabel": "Software Development",
+    "developmentText": "Front-End & Back-End Development",
+    "managementLabel": "Project Management",
+    "managementText": "Add agile and Quality Management to your Software LifeCycle",
+    "aiLabel": "Artificial Intelligence",
+    "aiText": "Ride through the Innovative Transformation"
+  },
+  "footer": {
+    "heading": "PARTNER WITH US",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "phonePlaceholder": "Your Phone Number",
+    "messagePlaceholder": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successMsg": "Message sent successfully!",
+    "errorMsg": "Error sending message. Please try again.",
+    "validationName": "Please enter your name",
+    "validationEmail": "Please enter a valid email address",
+    "validationMessage": "Please enter your message",
+    "aboutUs": "About Us",
+    "howItWorks": "How it works",
+    "terms": "Terms of Service",
+    "contactUs": "Contact Us",
+    "contact": "Contact",
+    "support": "Support",
+    "sponsor": "Sponsor Us",
+    "socialMedia": "Social Media",
+    "rights": "Deep Vision By Eng.Lisandro Fernando. All Rights Reserved © 2024"
+  }
+}
