@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contáctanos"
+  },
+  "hero": {
+    "title": "ASÓCIATE CON NOSOTROS",
+    "subtitle": "Ponte en contacto",
+    "getStarted": "Comenzar",
+    "globalConsultant": "Somos una Consultora Global"
+  },
+  "about": {
+    "p1": "En nuestra esencia, creemos que la tecnología debe usarse para hacer la vida de las personas más fácil y eficiente. Por eso estamos comprometidos a entregar soluciones personalizadas adaptadas a las necesidades específicas de cada cliente. Ya sea que busques construir una nueva aplicación, mejorar una existente u optimizar tus procesos de desarrollo, tenemos el conocimiento para ayudarte a alcanzar tus objetivos.",
+    "p2": "Nuestro equipo de desarrollo tiene experiencia en una variedad de lenguajes de programación y frameworks, incluyendo Java, Python, Javascript y muchos más. Utilizamos las últimas herramientas y metodologías para garantizar que las soluciones de software de nuestros clientes sean confiables, eficientes y seguras.",
+    "p3": "Además, ofrecemos servicios de pruebas de software que ayudan a nuestros clientes a identificar y corregir errores antes de que se conviertan en problemas mayores. Nuestros servicios de DevOps permiten a las organizaciones optimizar sus procesos de desarrollo e implementación, logrando entregas más rápidas y eficientes.",
+    "p4": "En nuestra empresa, nos apasiona ayudar a los negocios a prosperar a través de la tecnología. Creemos en construir relaciones a largo plazo con nuestros clientes y estamos comprometidos a brindar un servicio al cliente excepcional en cada paso. Contáctanos hoy para saber más sobre cómo podemos ayudar a tu negocio a prosperar en la era digital."
+  },
+  "cards": {
+    "title": "Conoce nuestros Servicios",
+    "testingLabel": "Pruebas de Software",
+    "testingText": "Asegura que no haya errores en tu aplicación",
+    "devopsLabel": "DevOps",
+    "devopsText": "Entrega con Calidad",
+    "developmentLabel": "Desarrollo de Software",
+    "developmentText": "Desarrollo Front-End & Back-End",
+    "managementLabel": "Gestión de Proyectos",
+    "managementText": "Agrega agilidad y Gestión de Calidad a tu Ciclo de Vida de Software",
+    "aiLabel": "Inteligencia Artificial",
+    "aiText": "Navega la Transformación Innovadora"
+  },
+  "footer": {
+    "heading": "ASÓCIATE CON NOSOTROS",
+    "namePlaceholder": "Tu Nombre",
+    "emailPlaceholder": "Tu Correo Electrónico",
+    "phonePlaceholder": "Tu Número de Teléfono",
+    "messagePlaceholder": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successMsg": "¡Mensaje enviado con éxito!",
+    "errorMsg": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "validationName": "Por favor, ingresa tu nombre",
+    "validationEmail": "Por favor, ingresa una dirección de correo válida",
+    "validationMessage": "Por favor, ingresa tu mensaje",
+    "aboutUs": "Sobre Nosotros",
+    "howItWorks": "Cómo funciona",
+    "terms": "Términos de Servicio",
+    "contactUs": "Contáctanos",
+    "contact": "Contacto",
+    "support": "Soporte",
+    "sponsor": "Patrocínanos",
+    "socialMedia": "Redes Sociales",
+    "rights": "Deep Vision por Ing. Lisandro Fernando. Todos los derechos reservados © 2024"
+  }
+}

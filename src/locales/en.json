@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "PARTNER WITH US",
+    "subtitle": "Get in touch",
+    "getStarted": "Get Started",
+    "globalConsultant": "We are a Global Consultant"
+  },
+  "about": {
+    "p1": "At our core, we believe that technology should be used to make people's lives easier and more efficient. That's why we are committed to delivering customized solutions that are tailored to the specific needs of each client. Whether you're looking to build a new software application, improve an existing one, or streamline your software development processes, we have the expertise and knowledge to help you achieve your goals.",
+    "p2": "Our development team has expertise in a variety of programming languages and frameworks, including Java, Python, Javascript, and many more. We use the latest tools and methodologies to ensure that our clients' software solutions are reliable, efficient, and secure.",
+    "p3": "In addition, we provide software testing services that help our clients identify and fix bugs before they become major issues. And our DevOps services enable organizations to streamline their software development and deployment processes, resulting in faster and more efficient delivery of high-quality products.",
+    "p4": "At our company, we are passionate about helping businesses succeed through technology. We believe in building long-term relationships with our clients, and we are committed to delivering exceptional customer service every step of the way. Contact us today to learn more about how we can help your business thrive in the digital age."
+  },
+  "cards": {
+    "title": "Check out our Services",
+    "testingLabel": "Software Testing",
+    "testingText": "Ensure no bugs in your application",
+    "devopsLabel": "Devops",
+    "devopsText": "Quality Delivery",
+    "developmentLabel": "Software Development",
+    "developmentText": "Front-End & Back-End Development",
+    "managementLabel": "Project Management",
+    "managementText": "Add agile and Quality Management to your Software LifeCycle",
+    "aiLabel": "Artificial Intelligence",
+    "aiText": "Ride through the Innovative Transformation"
+  },
+  "footer": {
+    "heading": "PARTNER WITH US",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "phonePlaceholder": "Your Phone Number",
+    "messagePlaceholder": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successMsg": "Message sent successfully!",
+    "errorMsg": "Error sending message. Please try again.",
+    "validationName": "Please enter your name",
+    "validationEmail": "Please enter a valid email address",
+    "validationMessage": "Please enter your message",
+    "aboutUs": "About Us",
+    "howItWorks": "How it works",
+    "terms": "Terms of Service",
+    "contactUs": "Contact Us",
+    "contact": "Contact",
+    "support": "Support",
+    "sponsor": "Sponsor Us",
+    "socialMedia": "Social Media",
+    "rights": "Deep Vision By Eng.Lisandro Fernando. All Rights Reserved © 2024"
+  }
+}

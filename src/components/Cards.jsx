@@ -6,8 +6,10 @@ import devops from '../assets/logoandvideos/Devops.jpg'
 import development from '../assets/logoandvideos/Develoment.jpg'
 import projectMang from '../assets/logoandvideos/Management.jpg'
 import Ai from '../assets/logoandvideos/AI.jpg'
+import { useTranslation } from 'react-i18next';
 
 function Cards() {
+  const { t } = useTranslation();
   useEffect(() => {
     const images = [testing, devops, development, projectMang, Ai];
     images.forEach(src => {
@@ -17,42 +19,17 @@ function Cards() {
   }, []);
   return (
     <div className='cards' id='services'>
-      <h1>Check out our Services</h1>
+      <h1>{t('cards.title')}</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
-            <CardItem
-              src={testing}
-              text='Ensure no bugs in your application'
-              label='Software Testing'
-              path='/services'
-            />
-            <CardItem
-              src={devops}
-              text='Quality Delivery'
-              label='Devops'
-              path='/services'
-            />
+            <CardItem src={testing} text={t('cards.testingText')} label={t('cards.testingLabel')} path='/services' />
+            <CardItem src={devops} text={t('cards.devopsText')} label={t('cards.devopsLabel')} path='/services' />
           </ul>
           <ul className='cards__items'>
-            <CardItem
-              src={development}
-              text='Front-End & Back-End Development'
-              label='Software Development'
-              path='/services'
-            />
-            <CardItem
-              src={projectMang}
-              text='Add agile and Quality Management to your Software LifeCycle'
-              label='Project Management'
-              path='/services'
-            />
-            <CardItem
-              src={Ai}
-              text='Ride through the Innovative Transformation'
-              label='Artificial Inteligence'
-              path='/services'
-            />
+            <CardItem src={development} text={t('cards.developmentText')} label={t('cards.developmentLabel')} path='/services' />
+            <CardItem src={projectMang} text={t('cards.managementText')} label={t('cards.managementLabel')} path='/services' />
+            <CardItem src={Ai} text={t('cards.aiText')} label={t('cards.aiLabel')} path='/services' />
           </ul>
         </div>
       </div>
