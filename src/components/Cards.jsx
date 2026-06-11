@@ -36,8 +36,8 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src={dataEngineering}
-              text='Transform raw data into powerful insights — we design and build scalable data pipelines, warehouses, and analytics solutions that fuel smarter business decisions powered by AI.'
-              label='Data Engineering'
+              text={t('cards.dataEngText')}
+              label={t('cards.dataEngLabel')}
               path='/services'
             />
           </ul>

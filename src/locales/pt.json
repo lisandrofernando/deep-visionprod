@@ -29,7 +29,9 @@
     "managementLabel": "Gestão de Projetos",
     "managementText": "Adicione agilidade e Gestão de Qualidade ao seu Ciclo de Vida de Software",
     "aiLabel": "Inteligência Artificial",
-    "aiText": "Navegue pela Transformação Inovadora"
+    "aiText": "Navegue pela Transformação Inovadora",
+    "dataEngLabel": "Engenharia de Dados",
+    "dataEngText": "Transforme dados brutos em insights poderosos — projetamos e construímos pipelines de dados escaláveis, data warehouses e soluções de análise que impulsionam decisões de negócios mais inteligentes com o poder da IA."
   },
   "footer": {
     "heading": "SEJA NOSSO PARCEIRO",

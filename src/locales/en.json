@@ -29,7 +29,9 @@
     "managementLabel": "Project Management",
     "managementText": "Add agile and Quality Management to your Software LifeCycle",
     "aiLabel": "Artificial Intelligence",
-    "aiText": "Ride through the Innovative Transformation"
+    "aiText": "Ride through the Innovative Transformation",
+    "dataEngLabel": "Data Engineering",
+    "dataEngText": "Transform raw data into powerful insights — we design and build scalable data pipelines, warehouses, and analytics solutions that fuel smarter business decisions powered by AI."
   },
   "footer": {
     "heading": "PARTNER WITH US",
