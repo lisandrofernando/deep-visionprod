@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         run: |
-          echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
+          echo "REACT_APP_API_URL=https://deep-visionprod-production.up.railway.app" > .env
           echo "PUBLIC_URL=." >> .env
           SKIP_PREFLIGHT_CHECK=true npm run build
 

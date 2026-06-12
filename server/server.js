@@ -9,7 +9,7 @@ const app = express();
 
 // Restrict CORS to the production domain only
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'https://deep-visionmx.com',
+  process.env.FRONTEND_URL || 'https://deep-vision.com',
   'http://localhost:3000'
 ];
 
