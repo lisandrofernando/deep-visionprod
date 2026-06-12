@@ -42,7 +42,10 @@ const createTransporter = () => nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  tls: { rejectUnauthorized: false }
+  tls: { rejectUnauthorized: false },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000
 });
 
 app.get('/health', (req, res) => {
@@ -76,7 +79,12 @@ app.post('/api/send-email', emailLimiter, async (req, res) => {
     await transporter.verify();
   } catch (err) {
     console.error('SMTP verify failed:', err.message, '| code:', err.code, '| response:', err.response);
-    return res.status(500).json({ message: 'Email service unavailable. Please try again later.', debug: err.message });
+    return res.status(500).json({
+      message: 'Email service unavailable. Please try again later.',
+      debug: err.message || 'no error message',
+      code: err.code || 'no code',
+      response: err.response || 'no response'
+    });
   }
 
   try {
