@@ -41,6 +41,15 @@ const sanitize = (str) => (str ? String(str).replace(/<[^>]*>/g, '').trim() : ''
 // Validate email format
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    emailUser: process.env.EMAIL_USER ? 'set' : 'missing',
+    emailPass: process.env.EMAIL_PASS ? 'set' : 'missing',
+    emailTo: process.env.EMAIL_TO ? 'set' : 'missing'
+  });
+});
+
 app.post('/api/send-email', emailLimiter, async (req, res) => {
   const { name, email, phone, message } = req.body;
 
@@ -57,10 +66,11 @@ app.post('/api/send-email', emailLimiter, async (req, res) => {
     return res.status(400).json({ message: 'Invalid email address.' });
   }
 
-  // SMTP over TLS (port 465) to prevent cleartext transmission
+  // SMTP over STARTTLS (port 587)
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    secure: true,
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
