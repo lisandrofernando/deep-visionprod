@@ -2,12 +2,10 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const app = express();
 
-// Restrict CORS to the production domain only
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'https://deep-vision.com',
   'http://localhost:3000'
@@ -21,32 +19,39 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['POST'],
+  methods: ['GET', 'POST'],
   credentials: true
 }));
 
 app.use(express.json());
-app.use(cookieParser());
 
-// Rate limit: max 5 requests per 15 minutes per IP to prevent abuse
 const emailLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 5,
   message: { message: 'Too many requests, please try again later.' }
 });
 
-// Sanitize a string by stripping HTML tags and trimming whitespace
 const sanitize = (str) => (str ? String(str).replace(/<[^>]*>/g, '').trim() : '');
-
-// Validate email format
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+const createTransporter = () => nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: { rejectUnauthorized: false }
+});
 
 app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
     emailUser: process.env.EMAIL_USER ? 'set' : 'missing',
     emailPass: process.env.EMAIL_PASS ? 'set' : 'missing',
-    emailTo: process.env.EMAIL_TO ? 'set' : 'missing'
+    emailTo: process.env.EMAIL_TO ? 'set' : 'missing',
+    frontendUrl: process.env.FRONTEND_URL || 'not set'
   });
 });
 
@@ -61,35 +66,30 @@ app.post('/api/send-email', emailLimiter, async (req, res) => {
   if (!safeName || !safeEmail || !safeMessage) {
     return res.status(400).json({ message: 'Name, email and message are required.' });
   }
-
   if (!isValidEmail(safeEmail)) {
     return res.status(400).json({ message: 'Invalid email address.' });
   }
 
-  // SMTP over STARTTLS (port 587)
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
-  });
-
-  const mailOptions = {
-    from: `"${safeName}" <${process.env.EMAIL_USER}>`,
-    replyTo: safeEmail,
-    to: process.env.EMAIL_TO,
-    subject: `Contact Form - ${safeName}`,
-    text: `Name: ${safeName}\nEmail: ${safeEmail}\nPhone: ${safePhone}\nMessage: ${safeMessage}`
-  };
+  const transporter = createTransporter();
 
   try {
-    await transporter.sendMail(mailOptions);
+    await transporter.verify();
+  } catch (err) {
+    console.error('SMTP verify failed:', err.message);
+    return res.status(500).json({ message: 'Email service unavailable. Please try again later.' });
+  }
+
+  try {
+    await transporter.sendMail({
+      from: `"${safeName}" <${process.env.EMAIL_USER}>`,
+      replyTo: safeEmail,
+      to: process.env.EMAIL_TO,
+      subject: `Contact Form - ${safeName}`,
+      text: `Name: ${safeName}\nEmail: ${safeEmail}\nPhone: ${safePhone}\nMessage: ${safeMessage}`
+    });
     res.status(200).json({ message: 'Email sent successfully!' });
   } catch (error) {
-    console.error('Nodemailer error:', error.message);
+    console.error('Nodemailer send error:', error.message);
     res.status(500).json({ message: 'Failed to send email.' });
   }
 });
