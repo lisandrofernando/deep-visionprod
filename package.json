@@ -7,12 +7,6 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.6",
-    "dotenv": "^16.0.0",
-    "express": "^5.2.1",
-    "express-rate-limit": "^8.5.2",
-    "nodemailer": "^8.0.1",
     "i18next": "23.16.8",
     "i18next-browser-languagedetector": "8.2.1",
     "react": "^19.2.4",
@@ -25,7 +19,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:server": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,9 +29,7 @@
       "react-app/jest"
     ]
   },
-  "overrides": {
-    "ajv-keywords": "3.5.2"
-  },
+  "overrides": {},
   "browserslist": {
     "production": [
       ">0.2%",
