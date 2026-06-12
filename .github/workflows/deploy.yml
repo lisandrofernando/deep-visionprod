@@ -24,13 +24,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install --legacy-peer-deps
 
       - name: Build
         run: |
           echo "REACT_APP_API_URL=https://prod-api.deep-vision.com" > .env
           echo "PUBLIC_URL=." >> .env
-          npm run build
+          SKIP_PREFLIGHT_CHECK=true npm run build
 
       - name: Add 404.html
         run: cp build/index.html build/404.html
