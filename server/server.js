@@ -75,8 +75,8 @@ app.post('/api/send-email', emailLimiter, async (req, res) => {
   try {
     await transporter.verify();
   } catch (err) {
-    console.error('SMTP verify failed:', err.message);
-    return res.status(500).json({ message: 'Email service unavailable. Please try again later.' });
+    console.error('SMTP verify failed:', err.message, '| code:', err.code, '| response:', err.response);
+    return res.status(500).json({ message: 'Email service unavailable. Please try again later.', debug: err.message });
   }
 
   try {
