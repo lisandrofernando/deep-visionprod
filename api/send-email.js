@@ -3,11 +3,13 @@ const nodemailer = require('nodemailer');
 const sanitize = (str) => (str ? String(str).replace(/<[^>]*>/g, '').trim() : '');
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-const allowedOrigins = [
-  'https://deep-vison.com',
-  'https://www.deep-vison.com',
-  'http://localhost:3000'
-];
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim()).filter(Boolean)
+  : [
+      'https://deep-vison.com',
+      'https://www.deep-vison.com',
+      'http://localhost:3000'
+    ];
 
 module.exports = async (req, res) => {
   const origin = req.headers.origin;
@@ -40,7 +42,7 @@ module.exports = async (req, res) => {
     secure: false,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      pass: (process.env.EMAIL_PASS || '').replace(/\s+/g, '')
     }
   });
 
